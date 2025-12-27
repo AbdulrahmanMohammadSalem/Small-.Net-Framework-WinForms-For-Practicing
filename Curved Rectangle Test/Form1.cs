@@ -63,14 +63,16 @@ namespace Curved_Rectangle_Test {
 
             GraphicsPath path = new GraphicsPath();
 
-            path.AddArc(X, Y, RADIUS * 2, RADIUS * 2, 180, 90);
-            path.AddLine(p1, p2);
-            path.AddArc(X + WIDTH - RADIUS * 2, Y, RADIUS * 2, RADIUS * 2, 270, 90);
-            path.AddLine(p3, p4);
-            path.AddArc(X + WIDTH - RADIUS * 2, Y + HEIGHT - RADIUS * 2, RADIUS * 2, RADIUS * 2, 0, 90);
-            path.AddLine(p6, p5);
-            path.AddArc(X, Y + HEIGHT - RADIUS * 2, RADIUS * 2, RADIUS * 2, 90, 90);
-            path.AddLine(p8, p7);
+            //The order of adding is very important to get the correct shape.
+            //If you messed up the order you will get chaos.
+            path.AddArc(X, Y, RADIUS * 2, RADIUS * 2, 180, 90); //Top-left arc
+            path.AddLine(p1, p2); //Top line
+            path.AddArc(X + WIDTH - RADIUS * 2, Y, RADIUS * 2, RADIUS * 2, 270, 90); //Top-right arc
+            path.AddLine(p3, p4); //Right line
+            path.AddArc(X + WIDTH - RADIUS * 2, Y + HEIGHT - RADIUS * 2, RADIUS * 2, RADIUS * 2, 0, 90); //Bottom-right arc
+            path.AddLine(p6, p5); //Bottom line
+            path.AddArc(X, Y + HEIGHT - RADIUS * 2, RADIUS * 2, RADIUS * 2, 90, 90); //Bottom-left arc
+            path.AddLine(p8, p7); //Left line
 
             path.CloseFigure();
 
@@ -196,3 +198,4 @@ namespace Curved_Rectangle_Test {
         }
     }
 }
+
