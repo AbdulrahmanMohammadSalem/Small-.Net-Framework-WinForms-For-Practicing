@@ -86,8 +86,6 @@ namespace Curved_Rectangle_Test {
 
             if (THICKNESS > 0)
                 myCanvas.DrawPath(myPen, path);
-
-            myCanvas.Dispose();
         }
 
         private void trackBar_X_Scroll(object sender, EventArgs e) {
@@ -198,4 +196,5 @@ namespace Curved_Rectangle_Test {
         }
     }
 }
+
 
